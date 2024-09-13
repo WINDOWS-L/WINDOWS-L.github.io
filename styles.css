@@ -1,9 +1,9 @@
 .topnav {
-    background-color: #333;
+    background-color: #1D1D1D;
     overflow: hidden;
     width: 100%;
 }
-  
+
 .topnav a {
     float: left;
     color: #f2f2f2;
@@ -18,37 +18,52 @@
     color: black;
 }
   
-
-.topnav a.active {
+/* .topnav a.active {
     background-color: #04AA6D;
+    color: white;
+} */
+
+/* */
+
+/* */
+
+html {
+    background-color: #333333;
+}
+
+pre {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    white-space: pre;
+    margin: 1em 0;
     color: white;
 }
 
-h1 {
+article {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
     color: red;
-    text-align: center;
-}
-
-h2 {
-    color: green;
-    text-align: center;
-}
-
-h3 {
-    color: blue;
-    text-align: center;
-}
-
-h4 {
-    color: blueviolet;
-    text-align: center;
-}
-
-h5 {
-    color: aqua;
-    text-align: center;
-}
-h6 {
-    color: fuchsia;
-    text-align: center;
-}
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }

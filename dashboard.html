@@ -17,8 +17,8 @@
     <title>Dashboard</title>
 
     <div class="topnav">
-        <a class="active" href="home.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
+        <a href="home.html">Home</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
         <a href="news.html">News</a>
@@ -57,59 +57,102 @@
                     <td>Program- & Career Orientation (CU75001V3)</td>
                     <td>Presentation (individual)</td>
                     <td style="background-color: green;">2.5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">2.5 EC</td>
                 </tr>
                 <tr>
                     <td>Computer Science Basics (CU75002V2)</td>
                     <td>Written Knowledge Test</td>
                     <td style="background-color: green;">5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
                     <td>Programming Basics (CU75003V1)</td>
                     <td>Case Study Exam</td>
                     <td style="background-color: green;">5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
                     <td rowspan="2">Block 2</td>
                     <td rowspan="2">Object Oriented Programming</td>
                     <td>Presentation (group)</td>
                     <td style="background-color: green;">5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
                     <td>Written Knowledge Test</td>
                     <td style="background-color: green;">5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
                     <td rowspan="2">Block 3</td>
                     <td>Business IT Consultancy Basics (CU75081V1)</td>
                     <td>Assignment (individual)</td>
-                    <td style="background-color: green;">5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: green;">2.5 EC</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
                     <td>Framework-project 1 (CU75080V2)</td>
                     <td>Project With Group</td>
                     <td style="background-color: green;">10 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
-                    <td rowspan="2">Block 4</td>
+                    <td rowspan="3">Block 4</td>
                     <td>Framework-project 2</td>
                     <td>Project With Group</td>
                     <td style="background-color: green;">10 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
                 <tr>
                     <td>Personal Professional Development Exploration (CU75068V3)</td>
                     <td>Criterium Focused Interview</td>
                     <td style="background-color: green;">12.5 EC</td>
-                    <td style="background-color: orange;">?</td>
+                    <td style="background-color: orange;">0</td>
+                </tr>
+                <tr>
+                    <td>IT Personality </td>
+                    <td>Portfolio</td>
+                    <td style="background-color: green;">2.5 EC</td>
+                    <td style="background-color: orange;">0</td>
                 </tr>
             </table>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const rows = document.querySelectorAll('tr');
+                    let totalEC = 0;
+                
+                    rows.forEach(row => {
+                        const lastCell = row.querySelector('td:last-child');
+                        if (lastCell) {
+                            const ecText = lastCell.textContent.trim();
+                            const ecValue = parseFloat(ecText.split(' ')[0]);
+                            if (!isNaN(ecValue)) {
+                                totalEC += ecValue;
+                            }
+                        }
+                    });
+                
+                    const progressBar = document.getElementById('progress-bar');
+                    const progressPercentage = (totalEC / 60) * 100;
+                    progressBar.style.width = progressPercentage + '%';
+                    progressBar.textContent = totalEC + ' / 60 EC';
+                
+                    if (totalEC < 45) {
+                        progressBar.style.backgroundColor = 'red';
+                    } else if (totalEC === 45) {
+                        progressBar.style.backgroundColor = 'orange';
+                    } else if (totalEC > 45 && totalEC < 60) {
+                        progressBar.style.backgroundColor = 'green';
+                    } else if (totalEC === 60) {
+                        progressBar.style.backgroundColor = 'gold';
+                    }
+                });
+                </script>
+
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
                                     
             <pre>
 45/60 EC minimaal anders NBSA.
